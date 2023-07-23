@@ -8,30 +8,41 @@
 import SwiftUI
 
 struct TabBottomView: View {
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    @StateObject private var hapticEngine = HapticEngine()
     let tabbarItems: [TabItemData]
-    var height: CGFloat = 70
-    var width: CGFloat = UIScreen.main.bounds.width - 32
+    var height: CGFloat = 48
+    var width: CGFloat = UIScreen.main.bounds.width
     @Binding var selectedIndex: Int
     
     var body: some View {
-        HStack {
-            Spacer()
-            
-            ForEach(tabbarItems.indices) { index in
-                let item = tabbarItems[index]
-                Button {
-                    self.selectedIndex = index
-                } label: {
-                    let isSelected = selectedIndex == index
-                    TabItemView(data: item, isSelected: isSelected)
-                }
+        VStack(spacing: 0) {
+            Rectangle().frame(width: width,height: 1).foregroundColor(.black)
+            HStack(spacing: 0) {
                 Spacer()
+                
+                ForEach(tabbarItems.indices) { index in
+                    let item = tabbarItems[index]
+                    Button {
+                        self.selectedIndex = index
+                    } label: {
+                        let isSelected = selectedIndex == index
+                        TabItemView(data: item, isSelected: isSelected)
+                    }
+                    .onAppear(perform: hapticEngine.prepareHaptics)
+                    .onLongPressGesture(minimumDuration: 0.1, maximumDistance: .infinity, pressing: { pressing in
+                            if pressing {
+                                hapticEngine.hapticFeedbackLight()
+                            }
+                        }, perform: {})
+                    Spacer()
+                }
             }
+            .frame(width: width, height: height)
         }
-        .frame(width: width, height: height)
-        .background(Color.white)
-        .cornerRadius(13)
-        .shadow(radius: 5, x: 0, y: 4)
+        .padding(.bottom, safeAreaInsets.bottom)
+        .background(Color.gray)
+        .ignoresSafeArea()
     }
 }
 
@@ -47,17 +58,21 @@ struct TabItemView: View {
     
     var body: some View {
         VStack {
-            Image(isSelected ? data.selectedImage : data.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 32, height: 32)
-                .animation(.default)
-            
-            Spacer().frame(height: 4)
-            
-            Text(data.title)
-                .foregroundColor(isSelected ? .black : .gray)
-                .font(.system(size: 14))
+            VStack {
+                Spacer().frame(height: 8)
+
+                Image(isSelected ? data.selectedImage : data.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                
+                Spacer().frame(height: 4)
+                
+                Text(data.title)
+                    .foregroundColor(isSelected ? .black : .gray)
+                    .font(.system(size: 14))
+            }
+            .frame(maxWidth: .infinity)
         }
     }
 }
@@ -65,10 +80,9 @@ struct TabItemView: View {
 struct TabBottomView_Previews: PreviewProvider {
     static var previews: some View {
         TabBottomView(tabbarItems: [
-            TabItemData(image: "home", selectedImage: "home", title: "home"),
-            TabItemData(image: "home", selectedImage: "home", title: "home"),
-            TabItemData(image: "home", selectedImage: "home", title: "home"),
-            TabItemData(image: "home", selectedImage: "home", title: "home")
+            TabItemData(image: "globe-america-ontlined", selectedImage: "globe-america-filled", title: "map"),
+            TabItemData(image: "message-outlined", selectedImage: "message-filled", title: "message"),
+            TabItemData(image: "person-outlined", selectedImage: "person-filled", title: "profile"),
         ], selectedIndex: .constant(0))
     }
 }

@@ -39,11 +39,11 @@ enum TabType: Int, CaseIterable {
     var tabItem: TabItemData {
         switch self {
         case ._1:
-            return TabItemData(image: "home", selectedImage: "home", title: "home")
+            return TabItemData(image: "globe-america-ontlined", selectedImage: "globe-america-filled", title: "home")
         case ._2:
-            return TabItemData(image: "home", selectedImage: "home", title: "home")
+            return TabItemData(image: "message-outlined", selectedImage: "message-filled", title: "home")
         case ._3:
-            return TabItemData(image: "home", selectedImage: "home", title: "home")
+            return TabItemData(image: "person-outlined", selectedImage: "person-filled", title: "home")
         }
     }
 }
@@ -69,6 +69,7 @@ struct CustomTabView<Content: View>: View {
             }
             .padding(.bottom, 8)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 

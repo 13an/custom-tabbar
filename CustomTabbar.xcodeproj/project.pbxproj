@@ -20,6 +20,8 @@
 		3EE0DFEA2A6D2733002B322F /* 03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0DFE92A6D2733002B322F /* 03.swift */; };
 		3EE0DFEC2A6D2739002B322F /* 04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0DFEB2A6D2739002B322F /* 04.swift */; };
 		3EE0DFEE2A6D274C002B322F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0DFED2A6D274C002B322F /* MainTabView.swift */; };
+		3EE0DFF22A6D38EF002B322F /* SafeAreaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0DFF12A6D38EF002B322F /* SafeAreaExtension.swift */; };
+		3EF9F50F2A6D421600392BF4 /* HapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF9F50E2A6D421600392BF4 /* HapticEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		3EE0DFE92A6D2733002B322F /* 03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 03.swift; sourceTree = "<group>"; };
 		3EE0DFEB2A6D2739002B322F /* 04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 04.swift; sourceTree = "<group>"; };
 		3EE0DFED2A6D274C002B322F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		3EE0DFF12A6D38EF002B322F /* SafeAreaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaExtension.swift; sourceTree = "<group>"; };
+		3EF9F50E2A6D421600392BF4 /* HapticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				3EE0DFE92A6D2733002B322F /* 03.swift */,
 				3EE0DFEB2A6D2739002B322F /* 04.swift */,
 				3EE0DFED2A6D274C002B322F /* MainTabView.swift */,
+				3EE0DFF12A6D38EF002B322F /* SafeAreaExtension.swift */,
+				3EF9F50E2A6D421600392BF4 /* HapticEngine.swift */,
 			);
 			path = CustomTabbar;
 			sourceTree = "<group>";
@@ -275,11 +281,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EE0DFF22A6D38EF002B322F /* SafeAreaExtension.swift in Sources */,
 				3EE0DFE52A6D271A002B322F /* 01.swift in Sources */,
 				3EE0DFBB2A6D2666002B322F /* ContentView.swift in Sources */,
 				3EE0DFEC2A6D2739002B322F /* 04.swift in Sources */,
 				3EE0DFEE2A6D274C002B322F /* MainTabView.swift in Sources */,
 				3EE0DFEA2A6D2733002B322F /* 03.swift in Sources */,
+				3EF9F50F2A6D421600392BF4 /* HapticEngine.swift in Sources */,
 				3EE0DFE32A6D2686002B322F /* TabBottomView.swift in Sources */,
 				3EE0DFE82A6D272D002B322F /* 02.swift in Sources */,
 				3EE0DFB92A6D2666002B322F /* CustomTabbarApp.swift in Sources */,
