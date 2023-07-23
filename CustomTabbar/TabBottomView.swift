@@ -29,9 +29,9 @@ struct TabBottomView: View {
                         let isSelected = selectedIndex == index
                         TabItemView(data: item, isSelected: isSelected)
                     }
-                    .onAppear(perform: hapticEngine.prepareHaptics)
                     .onLongPressGesture(minimumDuration: 0.1, maximumDistance: .infinity, pressing: { pressing in
                             if pressing {
+                                hapticEngine.prepareHaptics()
                                 hapticEngine.hapticFeedbackLight()
                             }
                         }, perform: {})
